@@ -33,6 +33,10 @@ migrate_working_dir/
 /build/
 /coverage/
 
+#runtime/data
+.agent/
+.implementation_prompt/
+
 # Symbolication related
 app.*.symbols
 
@@ -43,5 +47,3 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-/.agent
-/.implementation_prompt
