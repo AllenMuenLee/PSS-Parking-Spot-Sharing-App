@@ -34,8 +34,8 @@ migrate_working_dir/
 /coverage/
 
 #runtime/data
-.agent/
-.implementation_prompt/
+/.agent/
+/.implementation_prompt/
 
 # Symbolication related
 app.*.symbols
