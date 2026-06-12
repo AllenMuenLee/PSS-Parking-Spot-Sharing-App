@@ -1,0 +1,45 @@
+name: street_parking_app
+description: Crowd-sourced street parking application
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  
+  # State management
+  flutter_riverpod: ^2.4.3
+  
+  # Background service
+  flutter_background_service: ^5.1.0
+  
+  # Location & Sensors
+  geolocator: ^10.1.0
+  activity_recognition_flutter: ^6.0.0
+  
+  # Notifications
+  flutter_local_notifications: ^17.1.2
+  
+  # Firebase
+  firebase_core: ^2.24.2
+  cloud_firestore: ^4.14.0
+  
+  # HTTP / APIs
+  http: ^1.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+  mockito: ^5.4.4
+  build_runner: ^2.4.7
+
+flutter:
+  uses-material-design: true
