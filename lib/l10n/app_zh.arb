@@ -1,0 +1,16 @@
+{
+  "appTitle": "路邊停車",
+  "statusIdle": "閒置中",
+  "statusDriving": "駕駛中",
+  "statusVerifying": "驗證位置中...",
+  "statusParked": "已停車",
+  "statusLeaving": "駛離車位",
+  "currentStatus": "目前狀態：",
+  "manualTesting": "手動測試覆寫",
+  "simulateDriving": "模擬駕駛",
+  "simulateStop": "模擬停車",
+  "confirmParked": "確認已停車",
+  "simulateDeparture": "模擬駛離",
+  "parkedAt": "停車地點：{street}",
+  "time": "時間：{time}"
+}

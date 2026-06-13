@@ -1,0 +1,30 @@
+{
+  "appTitle": "Street Parking",
+  "statusIdle": "Idle",
+  "statusDriving": "Driving",
+  "statusVerifying": "Verifying Location...",
+  "statusParked": "Parked",
+  "statusLeaving": "Leaving Spot",
+  "currentStatus": "Current Status:",
+  "manualTesting": "Manual Testing Overrides",
+  "simulateDriving": "Simulate Driving",
+  "simulateStop": "Simulate Stop",
+  "confirmParked": "Confirm Parked",
+  "simulateDeparture": "Simulate Departure",
+  "parkedAt": "Parked at: {street}",
+  "@parkedAt": {
+    "placeholders": {
+      "street": {
+        "type": "String"
+      }
+    }
+  },
+  "time": "Time: {time}",
+  "@time": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  }
+}

@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'services/background_service.dart';
 import 'ui/dashboard_screen.dart';
+import 'state/locale_state.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
-  // Initialize Firebase (Requires google-services.json setup)
-  // await Firebase.initializeApp();
   
   // Initialize Background Services
   await initializeBackgroundService();
@@ -16,16 +15,28 @@ void main() async {
   runApp(const ProviderScope(child: StreetParkingApp()));
 }
 
-class StreetParkingApp extends StatelessWidget {
+class StreetParkingApp extends ConsumerWidget {
   const StreetParkingApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final locale = ref.watch(localeProvider);
+
     return MaterialApp(
       title: 'Street Parking App',
+      locale: locale,
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('en', ''), // English
+        Locale('zh', ''), // Traditional Chinese
+      ],
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        // Incorporating some modern aesthetics based on user global rules
         scaffoldBackgroundColor: const Color(0xFFF5F5F7),
         textTheme: const TextTheme(
           bodyMedium: TextStyle(color: Color(0xFF1D1D1F)),

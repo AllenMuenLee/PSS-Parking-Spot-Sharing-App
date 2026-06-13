@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 enum ParkingStatus {
   idle,       // App started, unknown status
@@ -14,6 +15,7 @@ class ParkingState {
   final double? longitude;
   final DateTime? parkedAt;
   final String? streetName;
+  final bool isSearchModeEnabled;
 
   ParkingState({
     required this.status,
@@ -21,6 +23,7 @@ class ParkingState {
     this.longitude,
     this.parkedAt,
     this.streetName,
+    this.isSearchModeEnabled = false,
   });
 
   ParkingState copyWith({
@@ -29,6 +32,7 @@ class ParkingState {
     double? longitude,
     DateTime? parkedAt,
     String? streetName,
+    bool? isSearchModeEnabled,
   }) {
     return ParkingState(
       status: status ?? this.status,
@@ -36,6 +40,7 @@ class ParkingState {
       longitude: longitude ?? this.longitude,
       parkedAt: parkedAt ?? this.parkedAt,
       streetName: streetName ?? this.streetName,
+      isSearchModeEnabled: isSearchModeEnabled ?? this.isSearchModeEnabled,
     );
   }
 }
@@ -57,8 +62,14 @@ class ParkingStateNotifier extends StateNotifier<ParkingState> {
     );
   }
 
+  void toggleSearchMode(bool enabled) async {
+    state = state.copyWith(isSearchModeEnabled: enabled);
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('isSearchModeEnabled', enabled);
+  }
+
   void reset() {
-    state = ParkingState(status: ParkingStatus.idle);
+    state = ParkingState(status: ParkingStatus.idle, isSearchModeEnabled: state.isSearchModeEnabled);
   }
 }
 
